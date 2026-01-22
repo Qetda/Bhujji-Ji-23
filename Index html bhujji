@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Bhujji Ji 💖</title>
+<style>
+*{box-sizing:border-box;font-family:'Segoe UI',sans-serif;margin:0;padding:0;}
+body{background:linear-gradient(135deg,#ffdde1,#ee9ca7);color:#333;text-align:center;}
+.screen{display:none;padding:20px;min-height:100vh;}
+.active{display:block;}
+h1,h2{margin:10px 0;}
+button{padding:12px 18px;border:none;border-radius:20px;background:#ff4d6d;color:#fff;font-size:16px;cursor:pointer;box-shadow:0 6px 14px rgba(0,0,0,.15);}
+button:active{transform:scale(.98);}
+.card{background:#fff;border-radius:18px;padding:18px;margin:12px auto;max-width:420px;box-shadow:0 8px 20px rgba(0,0,0,.15);}
+.options button{display:block;width:100%;margin:8px 0;background:#ffd1dc;color:#333;}
+.small{font-size:14px;opacity:.8;}
+
+/* Cake animation */
+.cake{width:160px;height:120px;margin:20px auto;position:relative;}
+.layer{position:absolute;left:0;right:0;margin:auto;background:#ff8fab;border-radius:12px;animation:bounce 1.6s infinite;}
+.l1{bottom:0;height:36px;width:160px;}
+.l2{bottom:38px;height:32px;width:140px;}
+.l3{bottom:72px;height:28px;width:120px;}
+.candle{position:absolute;top:-20px;left:0;right:0;margin:auto;width:10px;height:22px;background:#fff;border-radius:4px;}
+.flame{position:absolute;top:-14px;left:-4px;width:18px;height:18px;background:orange;border-radius:50%;animation:flicker .8s infinite;}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+@keyframes flicker{0%,100%{transform:scale(1);}50%{transform:scale(1.2);}}
+
+.slider{max-width:360px;margin:0 auto;position:relative;}
+.slider img{width:100%;border-radius:16px;display:none;box-shadow:0 10px 22px rgba(0,0,0,.18);}
+.slider img.active{display:block;}
+.nav{display:flex;justify-content:space-between;margin-top:10px;}
+.letter{text-align:left;line-height:1.7;font-size:16px;}
+audio{display:none;}
+</style>
+</head>
+<body>
+
+<!-- Background Music -->
+<audio id="bgmusic" loop autoplay>
+  <source src="https://www.dropbox.com/s/kp96z1t0isqh7v2/Ishq-De-Kakhda-Takda-Ni-Sanu.mp3?dl=1" type="audio/mpeg">
+</audio>
+
+<!-- 1) GAME START -->
+<section id="start" class="screen active">
+  <h1>Bhujji Ji 😻</h1>
+  <p>Cake se pehle ek chhota sa game ho jaaye? 🎮💖</p>
+  <button onclick="go('q1')">Start Birthday Game</button>
+</section>
+
+<!-- QUESTIONS -->
+<section id="q1" class="screen">
+  <div class="card">
+    <h2>🎂 Bhujji Ji ka birthday kab aata hai?</h2>
+    <div class="options">
+      <button onclick="ans(true)">23/01/2005</button>
+      <button onclick="ans(false)">14/02/2004</button>
+      <button onclick="ans(false)">01/01/2006</button>
+    </div>
+  </div>
+</section>
+
+<section id="q2" class="screen">
+  <div class="card">
+    <h2>🚗 Bhujji Ji ko kaunsi car pasand hai?</h2>
+    <div class="options">
+      <button onclick="ans(false)">Scorpio</button>
+      <button onclick="ans(true)">Tata Harrier</button>
+      <button onclick="ans(false)">Creta</button>
+    </div>
+  </div>
+</section>
+
+<section id="q3" class="screen">
+  <div class="card">
+    <h2>💖 Bhujji Ji ko sabse zyada khush kaun karta hai?</h2>
+    <div class="options">
+      <button onclick="ans(false)">Friends</button>
+      <button onclick="ans(true)">Bhujji khud</button>
+      <button onclick="ans(false)">Family</button>
+    </div>
+  </div>
+</section>
+
+<section id="q4" class="screen">
+  <div class="card">
+    <h2>🎵 Mood theek karne ke liye?</h2>
+    <div class="options">
+      <button onclick="ans(true)">Songs</button>
+      <button onclick="ans(false)">Sleep</button>
+      <button onclick="ans(false)">Long Drive</button>
+    </div>
+  </div>
+</section>
+
+<!-- 2) CAKE -->
+<section id="cake" class="screen">
+  <h1>🍰</h1>
+  <div class="cake">
+    <div class="layer l1"></div>
+    <div class="layer l2"></div>
+    <div class="layer l3"></div>
+    <div class="candle"><div class="flame"></div></div>
+  </div>
+  <h2>Happy Birthday Cute Doraemon 😻🎂</h2>
+  <button onclick="go('photos')">Cut the Cake 🎂</button>
+</section>
+
+<!-- 3) PHOTOS -->
+<section id="photos" class="screen">
+  <h2>Smiles for Bhujji 😻</h2>
+  <div class="slider">
+    <img src="https://i.ibb.co/XYR0XwB/photo1.jpg" class="active"/>
+    <img src="https://i.ibb.co/1zn5Z7h/photo2.jpg"/>
+    <div class="nav">
+      <button onclick="prev()">◀</button>
+      <button onclick="next()">▶</button>
+    </div>
+  </div>
+  <br/>
+  <button onclick="go('letter')">Open Your Letter 💌</button>
+</section>
+
+<!-- 4) LETTER -->
+<section id="letter" class="screen">
+  <div class="card letter">
+    <h2>Happy Birthday Bhujji Ji 🎂💖</h2>
+    <p>Tum paas ho to<br>cheezein thodi soft lagti hain,<br>aur jab door hoti ho<br>to yaadein kaafi… 🌸</p>
+    <p>Tumhari hasi me kuch aisa hai<br>jo bina wajah bhi<br>din better kar deta hai 😻</p>
+    <p>Shayad isi liye aaj bas itna kehna tha—<br>Bhujji Ji,<br><b>tum meri favourite feeling ho.</b> 💖</p>
+    <p class="small">— Happy Birthday once again ✨</p>
+  </div>
+</section>
+
+<script>
+let score=0,currentQ=1;
+function go(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function ans(correct){
+  if(correct) score++;
+  currentQ++;
+  if(currentQ<=4) go('q'+currentQ);
+  else go('cake');
+}
+
+// Slider
+let idx=0;
+const imgs=document.querySelectorAll('.slider img');
+function show(i){imgs.forEach(im=>im.classList.remove('active'));imgs[i].classList.add('active');}
+function next(){idx=(idx+1)%imgs.length;show(idx);}
+function prev(){idx=(idx-1+imgs.length)%imgs.length;show(idx);}
+</script>
+</body>
+</html>
